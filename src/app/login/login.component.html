@@ -1,0 +1,33 @@
+<div class="container mt-5 d-flex flex-column justify-content-center align-items-center">
+  <h2 class="display-6 mb-4">Login Form</h2>
+  <div class="login-box p-4 shadow rounded bg-light">
+    <div class="text-center mb-4">
+      <!-- <img src="https://www.shutterstock.com/shutterstock/photos/2459383763/display_1500/stock-vector-penguin-flat-vector-illustration-on-white-background-2459383763.jpg" alt="Penguin" class="profile-img img-fluid rounded-circle"> -->
+      <img src="https://images.freeimages.com/vhq/images/previews/b92/baby-penguin-117605.png?fmt=webp&w=500" alt="Penguin" class="profile-img img-fluid rounded-circle">
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
+        <div *ngIf="submitted && loginForm.controls['email'].errors" class="text-danger">
+          <small *ngIf="loginForm.controls['email'].errors['required']">Email is required</small>
+          <small *ngIf="loginForm.controls['email'].errors['email']">Email must be valid</small>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
+        <div *ngIf="submitted && loginForm.controls['password'].errors" class="text-danger">
+          <small *ngIf="loginForm.controls['password'].errors['required']">Password is required</small>
+          <small *ngIf="loginForm.controls['password'].errors['minlength']">Password must be at least 6 characters</small>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success w-100">Login</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+
